@@ -74,6 +74,12 @@
   list-style: none;
 }
 
+.profile__info-item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
 .profile__name {
   font-style: normal;
   font-weight: 500;
@@ -102,6 +108,7 @@
   cursor: pointer;
   margin: 0 0 0 24px;
   padding: 0;
+  transition: opacity .5s ease-out;
 }
 
 .profile__edit-button:focus {
@@ -123,6 +130,7 @@
   border: none;
   cursor: pointer;
   margin: 0;
+  transition: opacity .5s ease-out;
 }
 
 .profile__add-button:focus {
@@ -135,6 +143,87 @@
 
 .profile__add-button-icon {
   display: block;
+}
+
+.elements__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  grid-gap: 18px;
+  padding: 51px 0 0;
+  margin: 0 auto;
+}
+
+.elements__grid-item {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-height: 361px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.elements__grid-image {
+  display: block;
+  width: 100%;
+  max-height: 282px;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px 10px 0 0;
+}
+
+.elements__grid-description {
+  max-width: 246px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 100%;
+  min-height: 79px;
+  margin: 0 auto;
+  padding: 0;
+  align-items: center;
+}
+
+.elements__grid-header {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.elements__like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  padding: 66px 0 60px;
+}
+
+.footer__copyright {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
 }
 
 @media screen and (max-width: 320px) {
@@ -173,8 +262,14 @@
   }
 
   .profile__add-button {
-    width: 150px;
+    width: 282px;
     height: 50px;
     margin: 36px auto 0;
   }
+  
+  .footer {
+    padding: 48px 0 36px;
+  }
+  
+
 }
