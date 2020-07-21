@@ -42,3 +42,139 @@
     max-height: 24px;
   }
 }
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 40px 0  0;
+}
+
+.profile__left {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.profile__avatar {
+  display: block;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 0;
+}
+
+.profile__info {
+  padding: 0 0 0 30px;
+  list-style: none;
+}
+
+.profile__name {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 56px;
+  color: #fff; 
+  padding: 0;
+  margin: 0;
+}
+
+.profile__job {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+  padding: 16px 0 0;
+  margin: 0;
+}
+
+.profile__edit-button {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 0 0 24px;
+  padding: 0;
+}
+
+.profile__edit-button:focus {
+  outline: auto 1px;
+}
+
+.profile__edit-button:hover {
+  opacity: .6;
+}
+
+.profile__edit-button-icon {
+  display: block;
+}
+
+.profile__add-button {
+  width: 150px;
+  height: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.profile__add-button:focus {
+  outline: auto 1px;
+}
+
+.profile__add-button:hover {
+  opacity: .6;
+}
+
+.profile__add-button-icon {
+  display: block;
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    padding: 42px 0 0;
+    flex-direction: column;
+  }
+
+  .profile__left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__info {
+    padding: 14px 0 0;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+  }
+
+  .profile__name {
+    font-size: 22px;
+    line-height: 56px;
+  }
+  
+  .profile__job {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 14px 0 0;
+  }
+
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+    margin: 0 0 0 12px;
+  }
+
+  .profile__add-button {
+    width: 150px;
+    height: 50px;
+    margin: 36px auto 0;
+  }
+}
