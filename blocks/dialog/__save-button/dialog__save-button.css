@@ -1,0 +1,21 @@
+.dialog__save-button {
+  background-color: #000;
+  min-width: 100%;
+  min-height: 50px;
+  color: #fff;
+  border-radius: 2px;
+  border: 0;
+  transition: opacity .5s ease-out;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  margin: 48px 0 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dialog__save-button:hover {
+  opacity: .8;
+}

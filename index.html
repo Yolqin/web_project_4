@@ -38,11 +38,9 @@
           </ul>
         </div>
         <button class="profile__add-button">
-          <svg width="100%" height="100%" viewBox="0 0 150 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="profile__add-button-icon">
-            <rect x="1" y="1" width="148" height="48" rx="1" stroke="white" stroke-width="2" />
-            <path d="M86 23.7778H76.2222V14H73.7778V23.7778H64V26.2222H73.7778V36H76.2222V26.2222H86V23.7778Z"
-              fill="white" />
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 9.77778H12.2222V0H9.77778V9.77778H0V12.2222H9.77778V22H12.2222V12.2222H22V9.77778Z" fill="white"/>
+          </svg>            
         </button>
       </section>
 
@@ -55,62 +53,62 @@
                 Yosemite Valley
               </h2>
               <button class="elements__like-button">
-                <img src="./images/like-icon.svg" alt="" class="elements__grid-icon">
+                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
               </button>
             </div>
           </li>
           <li class="elements__grid-item">
-            <img src="./images/lake-louise.jpg" alt="Yosemite" class="elements__grid-image">
+            <img src="./images/lake-louise.jpg" alt="Lake Louise" class="elements__grid-image">
             <div class="elements__grid-description">
               <h2 class="elements__grid-header">
                 Lake Louise
               </h2>
               <button class="elements__like-button">
-                <img src="./images/like-icon.svg" alt="" class="elements__grid-icon">
+                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
               </button>
             </div>
           </li>
           <li class="elements__grid-item">
-            <img src="./images/bald-mountains.jpg" alt="Yosemite" class="elements__grid-image">
+            <img src="./images/bald-mountains.jpg" alt="Bald Mountains" class="elements__grid-image">
             <div class="elements__grid-description">
               <h2 class="elements__grid-header">
                 Bald Mountains
               </h2>
               <button class="elements__like-button">
-                <img src="./images/like-icon.svg" alt="" class="elements__grid-icon">
+                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
               </button>
             </div>
           </li>
           <li class="elements__grid-item">
-            <img src="./images/latemar.jpg" alt="Yosemite" class="elements__grid-image">
+            <img src="./images/latemar.jpg" alt="Latemar" class="elements__grid-image">
             <div class="elements__grid-description">
               <h2 class="elements__grid-header">
                 Latemar
               </h2>
               <button class="elements__like-button">
-                <img src="./images/like-icon.svg" alt="" class="elements__grid-icon">
+                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
               </button>
             </div>
           </li>
           <li class="elements__grid-item">
-            <img src="./images/vanoise.jpg" alt="Yosemite" class="elements__grid-image">
+            <img src="./images/vanoise.jpg" alt="Vanoise National Park" class="elements__grid-image">
             <div class="elements__grid-description">
               <h2 class="elements__grid-header">
                 Vanoise National Park
               </h2>
               <button class="elements__like-button">
-                <img src="./images/like-icon.svg" alt="" class="elements__grid-icon">
+                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
               </button>
             </div>
           </li>
           <li class="elements__grid-item">
-            <img src="./images/lago-di-braies.jpg" alt="Yosemite" class="elements__grid-image">
+            <img src="./images/lago-di-braies.jpg" alt="Lago Di Braies" class="elements__grid-image">
             <div class="elements__grid-description">
               <h2 class="elements__grid-header">
                 Lago Di Braies
               </h2>
               <button class="elements__like-button">
-                <img src="./images/like-icon.svg" alt="" class="elements__grid-icon">
+                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
               </button>
             </div>
           </li>
@@ -121,27 +119,31 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020. Around the U.S.</p>
     </footer>
+
+    <div class="dialog">
+      <button class="dialog__close-button">
+        <svg width="40.7" height="40.7" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg" class="dialog__close-button-icon">
+          <path d="M44.7661 41.5683L31.9759 28.778L44.7661 15.9878L41.5686 12.7902L28.7783 25.5805L15.9881 12.7902L12.7905 15.9878L25.5808 28.778L12.7905 41.5683L15.9881 44.7658L28.7783 31.9756L41.5686 44.7658L44.7661 41.5683Z" fill="white"/>
+        </svg>          
+      </button>
+      <div class="dialog__container">
+         
+        <h3 class="dialog__header">
+          Edit profile
+        </h3>
+        <form action="#" class="dialog__form">
+          <input type="text" class="dialog__input dialog__input_name" value="Jacques Cousteau">
+          <input type="text" class="dialog__input dialog__input_about-me" value="Explorer">
+          <button type="submit" class="dialog__save-button">Save</button> 
+        </form>
+        
+      </div>
+    </div>
+
+
   </div>
 
-  <div class="dialog">
-    <button class="dialog__close-button">
-      <svg width="40.7" height="40.7" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg" class="dialog__close-button-icon">
-        <path d="M44.7661 41.5683L31.9759 28.778L44.7661 15.9878L41.5686 12.7902L28.7783 25.5805L15.9881 12.7902L12.7905 15.9878L25.5808 28.778L12.7905 41.5683L15.9881 44.7658L28.7783 31.9756L41.5686 44.7658L44.7661 41.5683Z" fill="white"/>
-      </svg>          
-    </button>
-    <div class="dialog__container">
-       
-      <h3 class="dialog__header">
-        Edit profile
-      </h3>
-      <form action="#" class="dialog__form">
-        <input type="text" class="dialog__input dialog__input_name" value="Jacques Cousteau">
-        <input type="text" class="dialog__input dialog__input_about-me" value="Explorer">
-        <button type="submit" class="dialog__save-button">Save</button> 
-      </form>
-      
-    </div>
-  </div>
+  
     
     <script src="./pages/index.js"></script>
 </body>

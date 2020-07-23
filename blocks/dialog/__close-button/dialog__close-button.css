@@ -1,0 +1,19 @@
+.dialog__close-button {
+  position: relative;
+  top: -178px;
+  right: -456px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity .5s ease-out;
+  max-width: 40.7px;
+  max-height: 40.7px;
+}
+
+.dialog__close-button:focus {
+  outline: auto 1px;
+}
+
+.dialog__close-button:hover {
+  opacity: .6;
+}
