@@ -8,21 +8,21 @@ let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
 
 function toggleDialog() {
+  console.log(dialog.classList);
   dialog.classList.toggle('dialog_open');
 
   nameInput.value = profileName.textContent; 
   aboutMeInput.value = profileJob.textContent;
 }
 
-editDialogButton.addEventListener('click', toggleDialog)
-closeEditDialogButton.addEventListener('click', toggleDialog)
+editDialogButton.addEventListener('click', toggleDialog);
+closeEditDialogButton.addEventListener('click', toggleDialog);
 
-dialogForm.addEventListener('submit', function(e) {
+dialogForm.addEventListener('submit', e => {
   e.preventDefault();
   
   profileName.textContent = nameInput.value;
   profileJob.textContent = aboutMeInput.value;
  
   toggleDialog();
-
-})
+});
