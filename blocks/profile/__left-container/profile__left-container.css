@@ -1,4 +1,4 @@
-.profile__left {
+.profile__left-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .profile__left {
+  .profile__left-container {
     flex-direction: column;
     align-items: center;
   }

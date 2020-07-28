@@ -1,18 +1,20 @@
-let editDialogButton = document.querySelector('.profile__edit-button');
-let closeEditDialogButton = document.querySelector('.dialog__close-button');
-let dialog = document.querySelector('.dialog');
-let dialogForm = document.querySelector('.dialog__form');
-let nameInput = document.querySelector('.dialog__input_name');
-let aboutMeInput = document.querySelector('.dialog__input_about-me');
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__job');
+const editDialogButton = document.querySelector('.profile__edit-button');
+const closeEditDialogButton = document.querySelector('.dialog__close-button');
+const dialog = document.querySelector('.dialog');
+const dialogForm = document.querySelector('.dialog__form');
+const nameInput = document.querySelector('.dialog__input_type_name');
+const aboutMeInput = document.querySelector('.dialog__input_type_about-me');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
 
 function toggleDialog() {
-  console.log(dialog.classList);
-  dialog.classList.toggle('dialog_open');
 
-  nameInput.value = profileName.textContent; 
-  aboutMeInput.value = profileJob.textContent;
+  if (dialog.classList.contains('dialog_open')) {
+    nameInput.value = profileName.textContent; 
+    aboutMeInput.value = profileJob.textContent;
+  }
+
+  dialog.classList.toggle('dialog_open');
 }
 
 editDialogButton.addEventListener('click', toggleDialog);

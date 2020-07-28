@@ -1,3 +1,5 @@
+@import url('./__logo/header__logo.css');
+
 .header {
   margin: 0 auto;
   padding: 45px 0 41px;
@@ -9,5 +11,8 @@
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .header {
     padding: 28px 0 32px;
+    position: relative;
+    margin: 0 -19px 0;
+    min-width: 320px;
   }
 }

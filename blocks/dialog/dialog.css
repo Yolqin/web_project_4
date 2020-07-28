@@ -3,7 +3,6 @@
 @import url('./__container/dialog__container.css');
 @import url('./__form/dialog__form.css');
 @import url('./__input/dialog__input.css');
-/* @import url('./_open/dialog_open.css'); <- I had to put modifier manually, because display: none; from .dialog was overlapping display: flex; from .dialog_open*/
 @import url('./__save-button/dialog__save-button.css');
 @import url('./__header/dialog__header.css');
 
@@ -17,9 +16,4 @@
   display: none;
   justify-content: center;
   align-items: center;
-}
-
-/* I had to put modifier manually, because display: none; from .dialog was overlapping display: flex; from .dialog_open */
-.dialog_open {
-  display: flex;
 }
