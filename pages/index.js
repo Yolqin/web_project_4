@@ -9,7 +9,7 @@ const profileJob = document.querySelector('.profile__job');
 
 function toggleDialog() {
 
-  if (dialog.classList.contains('dialog_open')) {
+  if (!dialog.classList.contains('dialog_open')) {
     nameInput.value = profileName.textContent; 
     aboutMeInput.value = profileJob.textContent;
   }
