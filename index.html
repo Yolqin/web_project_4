@@ -33,72 +33,6 @@
 
       <section class="elements">
         <ul class="elements__grid">
-          <li class="elements__grid-item">
-            <img src="./images/yosemite.jpg" alt="Yosemite" class="elements__grid-image">
-            <div class="elements__grid-description">
-              <h2 class="elements__grid-header">
-                Yosemite Valley
-              </h2>
-              <button class="elements__like-button" type="button">
-                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
-              </button>
-            </div>
-          </li>
-          <li class="elements__grid-item">
-            <img src="./images/lake-louise.jpg" alt="Lake Louise" class="elements__grid-image">
-            <div class="elements__grid-description">
-              <h2 class="elements__grid-header">
-                Lake Louise
-              </h2>
-              <button class="elements__like-button" type="button">
-                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
-              </button>
-            </div>
-          </li>
-          <li class="elements__grid-item">
-            <img src="./images/bald-mountains.jpg" alt="Bald Mountains" class="elements__grid-image">
-            <div class="elements__grid-description">
-              <h2 class="elements__grid-header">
-                Bald Mountains
-              </h2>
-              <button class="elements__like-button" type="button">
-                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
-              </button>
-            </div>
-          </li>
-          <li class="elements__grid-item">
-            <img src="./images/latemar.jpg" alt="Latemar" class="elements__grid-image">
-            <div class="elements__grid-description">
-              <h2 class="elements__grid-header">
-                Latemar
-              </h2>
-              <button class="elements__like-button" type="button">
-                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
-              </button>
-            </div>
-          </li>
-          <li class="elements__grid-item">
-            <img src="./images/vanoise.jpg" alt="Vanoise National Park" class="elements__grid-image">
-            <div class="elements__grid-description">
-              <h2 class="elements__grid-header">
-                Vanoise National Park
-              </h2>
-              <button class="elements__like-button" type="button">
-                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
-              </button>
-            </div>
-          </li>
-          <li class="elements__grid-item">
-            <img src="./images/lago-di-braies.jpg" alt="Lago Di Braies" class="elements__grid-image">
-            <div class="elements__grid-description">
-              <h2 class="elements__grid-header">
-                Lago Di Braies
-              </h2>
-              <button class="elements__like-button" type="button">
-                <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon">
-              </button>
-            </div>
-          </li>
         </ul>
       </section>
     </main>
@@ -108,22 +42,68 @@
     </footer>
   </div>
 
-  <div class="dialog">
+  <div class="dialog dialog__type_edit-progile">
     <div class="dialog__container">
       <button class="dialog__close-button" type="button">
         <img src="./images/Close-Icon.svg" alt="Close Button" class="dialog__close-button-icon">
       </button>
-      <h3 class="dialog__header">
-        Edit profile
-      </h3>
-      <form action="#" class="dialog__form" method="post" name="profile-edit">
-        <input type="text" class="dialog__input dialog__input_type_name" value="Jacques Cousteau">
-        <input type="text" class="dialog__input dialog__input_type_about-me" value="Explorer">
+      
+      <form action="#" class="dialog__form dialog__form_type_update-profile" method="post" name="profile-edit">
+        <h3 class="dialog__header">
+          Edit profile
+        </h3>
+        <input type="text" name="name" class="dialog__input dialog__input_type_name" value="Jacques Cousteau" placeholder="Name">
+        <input type="text" name="description" class="dialog__input dialog__input_type_about-me" value="Explorer" placeholder="Description">
         <button type="submit" class="dialog__save-button">Save</button>
       </form>
     </div>
   </div>
-  <script src="./pages/index.js"></script>
+
+  <div class="dialog dialog__type_add-grid-item">
+    <div class="dialog__container">
+      <button class="dialog__close-button" type="button">
+        <img src="./images/Close-Icon.svg" alt="Close Button" class="dialog__close-button-icon">
+      </button>
+      
+      <form action="#" class="dialog__form dialog__form_type_add-image" method="post" name="profile-edit">
+        <h3 class="dialog__header">
+          New place
+        </h3>
+        <input type="text" name="title" class="dialog__input dialog__input_type_grid-title" placeholder="Title">
+        <input type="url" name="image-link" class="dialog__input dialog__input_type_url "  placeholder="Image link" required>
+        <button type="submit" class="dialog__save-button">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="dialog dialog__type_image">
+    <div class="dialog__container">
+      <button class="dialog__close-button" type="button">
+        <img src="./images/Close-Icon.svg" alt="Close Button" class="dialog__close-button-icon">
+      </button>
+      <figure class="dialog__figure">
+        <img src="" alt="" class="dialog__image">
+        <figcaption class="dialog__image-caption"></figcaption> 
+      </figure>
+    </div>
+  </div>
+
+  <template class="grid-template">
+    <li class="elements__grid-item">
+      <button class="elements__delete-button" type="button">
+      </button>
+      <img src="" alt="" class="elements__grid-image">
+      <div class="elements__grid-description">
+        <h2 class="elements__grid-header">
+        </h2>
+        <button class="elements__like-button" type="button">
+          <!-- <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon"> -->
+        </button>
+      </div>
+    </li>
+  </template>
+
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>

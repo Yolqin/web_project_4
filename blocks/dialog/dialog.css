@@ -5,6 +5,10 @@
 @import url('./__input/dialog__input.css');
 @import url('./__save-button/dialog__save-button.css');
 @import url('./__header/dialog__header.css');
+@import url('./__figure/dialog__figure.css');
+@import url('./__image/dialog__image.css');
+@import url('./__image-caption/dialog__image-caption.css');
+
 
 .dialog {
   position: fixed;
@@ -17,3 +21,5 @@
   justify-content: center;
   align-items: center;
 }
+
+
