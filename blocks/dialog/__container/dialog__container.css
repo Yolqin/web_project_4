@@ -6,15 +6,3 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
 }
-
-
-.dialog > .dialog__container {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
-}
-
-.dialog:hover > .dialog__container {
-  visibility: visible;
-  opacity: 1;
-}
