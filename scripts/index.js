@@ -36,35 +36,6 @@ const dialogImageCaption = imagePopup.querySelector('.dialog__image-caption');
 const gridItemTitleInput = document.querySelector('.dialog__input_type_grid-title');
 const gridItemImageInput = document.querySelector('.dialog__input_type_url');
 
-
-function toggleDialog(dialogWindow) {
-  dialogWindow.classList.toggle('dialog_open');
-}
-
-editDialogButton.addEventListener('click', () => {
-  if (!editProfileDialog.classList.contains('dialog_open')) {
-    nameInput.value = profileName.textContent; 
-    aboutMeInput.value = profileJob.textContent;
-  }
-  toggleDialog(editProfileDialog);
-});
-
-closeEditDialogButton.addEventListener('click', () => {
-  toggleDialog(editProfileDialog);
-});
-
-
-dialogForm.addEventListener('submit', e => {
-  e.preventDefault();
-  
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = aboutMeInput.value;
- 
-  toggleDialog(editProfileDialog);
-});
- 
-
-
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -92,39 +63,41 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach(data => {
-  const gridElement = gridTemplate.cloneNode(true);
+function toggleDialog(dialogWindow) {
+  dialogWindow.classList.toggle('dialog_open');
+}
 
-  const gridImage =  gridElement.querySelector('.elements__grid-image');
-  const gridTitle = gridElement.querySelector('.elements__grid-header');
-  const gridLikeButton = gridElement.querySelector('.elements__like-button');
-  const gridDeleteButton = gridElement.querySelector('.elements__delete-button');
+editDialogButton.addEventListener('click', () => {
 
-  gridTitle.textContent = data.name; 
-  gridImage.src = data.link;
-  gridImage.alt = data.name;
-  
-  gridLikeButton.addEventListener("click", () => {
-    gridLikeButton.classList.toggle("elements__like-button_active");
-  });
-
-  gridDeleteButton.addEventListener('click', () => {
-    const gridItem = gridDeleteButton.closest('.elements__grid-item');
-    gridItem.remove();
-    });
-
-  gridImage.addEventListener('click', () => {
-    dialogImage.src = data.link;
-    dialogImage.alt = data.link;
-    dialogImageCaption.textContent = data.name;
-
-    toggleDialog(imagePopup);
-  });
-
-  list.prepend(gridElement);
+  nameInput.value = profileName.textContent; 
+  aboutMeInput.value = profileJob.textContent;
+  // if (!editProfileDialog.classList.contains('dialog_open')) {   < --- I had this version in my previous sprint, but codereviewer asked to put this check. So, I'm a bit confused which direction to follow.
+  //   nameInput.value = profileName.textContent; 
+  //   aboutMeInput.value = profileJob.textContent;
+  // } 
+  toggleDialog(editProfileDialog);
 });
 
+closeEditDialogButton.addEventListener('click', () => {
+  toggleDialog(editProfileDialog);
+});
 
+dialogForm.addEventListener('submit', e => {
+  e.preventDefault();
+  
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = aboutMeInput.value;
+ 
+  toggleDialog(editProfileDialog);
+});
+
+addGridItemDialogButton.addEventListener('click', () => {
+  toggleDialog(addGridItemDialog);
+});
+
+closeGridItemDialogButton.addEventListener('click', () => {
+  toggleDialog(addGridItemDialog);
+});
 
 closeGridImageDialogButton.addEventListener('click', () => {
   toggleDialog(imagePopup);
@@ -132,7 +105,6 @@ closeGridImageDialogButton.addEventListener('click', () => {
 
 function addGridItem(imageTitle, imageUrl) {
   const gridElement = gridTemplate.cloneNode(true);
-  console.log(gridElement);
 
   const gridImage =  gridElement.querySelector('.elements__grid-image');
   const gridTitle = gridElement.querySelector('.elements__grid-header');
@@ -141,6 +113,7 @@ function addGridItem(imageTitle, imageUrl) {
 
   gridTitle.textContent = imageTitle;
   gridImage.src = imageUrl;
+  gridImage.alt = imageTitle;
 
   gridLikeButton.addEventListener("click", () => {
     gridLikeButton.classList.toggle("elements__like-button_active");
@@ -160,9 +133,7 @@ function addGridItem(imageTitle, imageUrl) {
   });
 
   list.prepend(gridElement); 
-};
-
-
+}
 
 dialogImageForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -175,16 +146,6 @@ dialogImageForm.addEventListener('submit', e => {
   gridItemTitleInput.value = "";
 });
 
-
-addGridItemDialogButton.addEventListener('click', () => {
-  toggleDialog(addGridItemDialog);
+initialCards.forEach(data => {
+  addGridItem(data.name, data.link);
 });
-
-
-closeGridItemDialogButton.addEventListener('click', () => {
-  toggleDialog(addGridItemDialog);
-});
-
-
-
-
