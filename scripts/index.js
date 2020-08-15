@@ -132,20 +132,23 @@ function addGridItem(imageTitle, imageUrl) {
     toggleDialog(imagePopup);
   });
 
-  list.prepend(gridElement); 
+  return gridElement;
 }
 
 dialogImageForm.addEventListener('submit', e => {
   e.preventDefault();
-  
-  addGridItem(gridItemTitleInput.value, gridItemImageInput.value,);
+
+  const gridItem = addGridItem(gridItemTitleInput.value, gridItemImageInput.value,);
 
   toggleDialog(addGridItemDialog);
 
   gridItemImageInput.value = "";
   gridItemTitleInput.value = "";
+  
+  list.prepend(gridItem);
 });
 
 initialCards.forEach(data => {
-  addGridItem(data.name, data.link);
+  const gridItem = addGridItem(data.name, data.link);
+  list.prepend(gridItem);
 });
