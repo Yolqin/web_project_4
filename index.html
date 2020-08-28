@@ -52,8 +52,12 @@
         <h3 class="dialog__header">
           Edit profile
         </h3>
-        <input type="text" name="name" class="dialog__input dialog__input_type_name" value="Jacques Cousteau" placeholder="Name">
-        <input type="text" name="description" class="dialog__input dialog__input_type_about-me" value="Explorer" placeholder="Description">
+        <input type="text" name="name" id="profile__name" class="dialog__input dialog__input_type_name" value="Jacques Cousteau" placeholder="Name" required minlength="2" maxlength="40">
+        <span id="profile__name_error" class="dialog__error"></span>
+
+        <input type="text" name="description" id="profile__text" class="dialog__input dialog__input_type_about-me" value="Explorer" placeholder="Description" required minlength="2" maxlength="200">
+        <span id="profile__text_error" class="dialog__error"></span>
+
         <button type="submit" class="dialog__save-button">Save</button>
       </form>
     </div>
@@ -69,8 +73,12 @@
         <h3 class="dialog__header">
           New place
         </h3>
-        <input type="text" name="title" class="dialog__input dialog__input_type_grid-title" placeholder="Title">
-        <input type="url" name="image-link" class="dialog__input dialog__input_type_url "  placeholder="Image link" required>
+        <input type="text" name="title" id="card__title" class="dialog__input dialog__input_type_grid-title" placeholder="Title" required minlength="2" maxlength="30">
+        <span id="card__title_error" class="dialog__error"></span>
+
+        <input type="url" name="image-link" id="card__url" class="dialog__input dialog__input_type_url"  placeholder="Image link" required>
+        <span id="card__url_error" class="dialog__error"></span>
+
         <button type="submit" class="dialog__save-button">Save</button>
       </form>
     </div>
@@ -103,6 +111,7 @@
     </li>
   </template>
 
+  <script src="./scripts/validaiton.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 

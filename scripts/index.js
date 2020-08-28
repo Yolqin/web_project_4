@@ -36,6 +36,10 @@ const dialogImageCaption = imagePopup.querySelector('.dialog__image-caption');
 const gridItemTitleInput = document.querySelector('.dialog__input_type_grid-title');
 const gridItemImageInput = document.querySelector('.dialog__input_type_url');
 
+//Dialog Closing
+let openDialog = null;
+
+// Initial Cards Array
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -62,46 +66,6 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg"
   }
 ];
-
-function toggleDialog(dialogWindow) {
-  dialogWindow.classList.toggle('dialog_open');
-}
-
-editDialogButton.addEventListener('click', () => {
-
-  nameInput.value = profileName.textContent; 
-  aboutMeInput.value = profileJob.textContent;
-  // if (!editProfileDialog.classList.contains('dialog_open')) {   < --- I had this version in my previous sprint, but codereviewer asked to put this check. So, I'm a bit confused which direction to follow.
-  //   nameInput.value = profileName.textContent; 
-  //   aboutMeInput.value = profileJob.textContent;
-  // } 
-  toggleDialog(editProfileDialog);
-});
-
-closeEditDialogButton.addEventListener('click', () => {
-  toggleDialog(editProfileDialog);
-});
-
-dialogForm.addEventListener('submit', e => {
-  e.preventDefault();
-  
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = aboutMeInput.value;
- 
-  toggleDialog(editProfileDialog);
-});
-
-addGridItemDialogButton.addEventListener('click', () => {
-  toggleDialog(addGridItemDialog);
-});
-
-closeGridItemDialogButton.addEventListener('click', () => {
-  toggleDialog(addGridItemDialog);
-});
-
-closeGridImageDialogButton.addEventListener('click', () => {
-  toggleDialog(imagePopup);
-});
 
 function addGridItem(imageTitle, imageUrl) {
   const gridElement = gridTemplate.cloneNode(true);
@@ -151,4 +115,71 @@ dialogImageForm.addEventListener('submit', e => {
 initialCards.forEach(data => {
   const gridItem = addGridItem(data.name, data.link);
   list.prepend(gridItem);
+});
+
+const closeWithEsc = ({keyCode}) => {
+  if (keyCode === 27) {
+    toggleDialog(openDialog);
+  }
+}
+
+//Closing the Popup by Clicking on the Overlay
+
+const closeWithOverlayClick = ({ target }) => {
+  if (target.classList.contains('dialog__close-button') || target.classList.contains('dialog')) {
+    toggleDialog(openDialog);
+  }
+};
+
+const toggleDialog = dialogWindow => {
+  const isDialogOpened = dialogWindow.classList.contains("dialog_open");
+  openDialog = dialogWindow;
+  dialogWindow.classList.toggle("dialog_open");
+ 
+  if (isDialogOpened) {
+    document.removeEventListener('keydown', closeWithEsc);
+    dialogWindow.removeEventListener('click', closeWithOverlayClick);
+
+    openDialog = null;
+  } else {
+    document.addEventListener('keydown', closeWithEsc);
+    dialogWindow.addEventListener('click', closeWithOverlayClick);
+  }
+}
+
+
+editDialogButton.addEventListener('click', () => {
+
+  nameInput.value = profileName.textContent; 
+  aboutMeInput.value = profileJob.textContent;
+  // if (!editProfileDialog.classList.contains('dialog_open')) {   < --- I had this version in my previous sprint, but codereviewer asked to put this check. So, I'm a bit confused which direction to follow.
+  //   nameInput.value = profileName.textContent; 
+  //   aboutMeInput.value = profileJob.textContent;
+  // } 
+  toggleDialog(editProfileDialog);
+});
+
+closeEditDialogButton.addEventListener('click', () => {
+  toggleDialog(editProfileDialog);
+});
+
+dialogForm.addEventListener('submit', e => {
+  e.preventDefault();
+  
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = aboutMeInput.value;
+ 
+  toggleDialog(editProfileDialog);
+});
+
+addGridItemDialogButton.addEventListener('click', () => {
+  toggleDialog(addGridItemDialog);
+});
+
+closeGridItemDialogButton.addEventListener('click', () => {
+  toggleDialog(addGridItemDialog);
+});
+
+closeGridImageDialogButton.addEventListener('click', () => {
+  toggleDialog(imagePopup);
 });

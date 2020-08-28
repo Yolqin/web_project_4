@@ -1,3 +1,5 @@
+@import url('./_type_error/dialog__input_type_error.css');
+
 .dialog__input {
   font-style: normal;
   font-weight: 400;
