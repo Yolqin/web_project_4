@@ -1,13 +1,13 @@
 .dialog__close-button {
   position: absolute;
-  top: -52px;
-  right: -26px;
-  background: none;
+  top: -42px;
+  right: -40px;
+  background: url('../../../images/Close-Icon.svg') no-repeat center;
   border: none;
   cursor: pointer;
   transition: opacity .5s ease-out;
-  max-width: 40.7px;
-  max-height: 40.7px;
+  min-width: 41px;
+  min-height: 41px;
 }
 
 .dialog__close-button:focus {

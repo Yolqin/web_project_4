@@ -1,9 +1,0 @@
-.profile__edit-button-icon {
-  display: block;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .profile__edit-button-icon {
-    width: 18px;
-  }
-}

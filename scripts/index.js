@@ -1,12 +1,12 @@
 //Wrappers
-const addGridItemDialog = document.querySelector('.dialog__type_add-grid-item');
-const editProfileDialog = document.querySelector('.dialog__type_edit-progile');
-const imagePopup = document.querySelector('.dialog__type_image');
+const addGridItemDialog = document.querySelector('.page__dialog_type_add-grid-item');
+const editProfileDialog = document.querySelector('.page__dialog_type_edit-profile');
+const imagePopup = document.querySelector('.page__dialog_type_image');
 
 //Open Buttons
 const editDialogButton = document.querySelector('.profile__edit-button');
 const addGridItemDialogButton = document.querySelector('.profile__add-button');
-
+ 
 //Close Buttons
 const closeEditDialogButton = editProfileDialog.querySelector('.dialog__close-button');
 const closeGridItemDialogButton = addGridItemDialog.querySelector('.dialog__close-button');
@@ -35,9 +35,6 @@ const dialogImageCaption = imagePopup.querySelector('.dialog__image-caption');
 //Image Inputs
 const gridItemTitleInput = document.querySelector('.dialog__input_type_grid-title');
 const gridItemImageInput = document.querySelector('.dialog__input_type_url');
-
-//Dialog Closing
-let openDialog = null;
 
 // Initial Cards Array
 const initialCards = [
@@ -117,36 +114,46 @@ initialCards.forEach(data => {
   list.prepend(gridItem);
 });
 
-const closeWithEsc = ({keyCode}) => {
-  if (keyCode === 27) {
-    toggleDialog(openDialog);
-  }
-}
+const ESC_KEY = 27;
+
+const closeWithEsc = ({keyCode}) => { 
+  if (keyCode === ESC_KEY) { 
+    const openDialog = document.querySelector('.dialog_open');
+
+    toggleDialog(openDialog); 
+  } 
+} 
 
 //Closing the Popup by Clicking on the Overlay
 
 const closeWithOverlayClick = ({ target }) => {
   if (target.classList.contains('dialog__close-button') || target.classList.contains('dialog')) {
+    const openDialog = document.querySelector('.dialog_open');
+
     toggleDialog(openDialog);
   }
 };
 
+//Dialog Closing
+//let openDialog = null;
+
 const toggleDialog = dialogWindow => {
+  //const openDialog = document.querySelector('.dialog_open');
+  
   const isDialogOpened = dialogWindow.classList.contains("dialog_open");
-  openDialog = dialogWindow;
+//  openDialog = dialogWindow;
   dialogWindow.classList.toggle("dialog_open");
  
   if (isDialogOpened) {
     document.removeEventListener('keydown', closeWithEsc);
     dialogWindow.removeEventListener('click', closeWithOverlayClick);
 
-    openDialog = null;
+    //openDialog = null;
   } else {
     document.addEventListener('keydown', closeWithEsc);
     dialogWindow.addEventListener('click', closeWithOverlayClick);
   }
 }
-
 
 editDialogButton.addEventListener('click', () => {
 

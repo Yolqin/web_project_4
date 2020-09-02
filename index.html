@@ -20,15 +20,11 @@
           <img src="./images/profile-photo.jpg" alt="Profile Avatar" class="profile__avatar">
           <div class="profile__info">
             <h1 class="profile__name">Jacques Cousteau</h1>
-            <button class="profile__edit-button" type="button">
-              <img src="./images/Edit-Button.svg" alt="Edit Button" class="profile__edit-button-icon">
-            </button>
+            <button class="profile__edit-button" type="button" name="edit profile"></button>
             <p class="profile__job">Explorer</p>
           </div>
         </div>
-        <button class="profile__add-button" type="button">
-          <img src="./images/add-icon.svg" alt="Add Button">
-        </button>
+        <button class="profile__add-button" type="button" name="add card"></button>
       </section>
 
       <section class="elements">
@@ -42,11 +38,9 @@
     </footer>
   </div>
 
-  <div class="dialog dialog__type_edit-progile">
+  <div class="page__dialog_type_edit-profile dialog">
     <div class="dialog__container">
-      <button class="dialog__close-button" type="button">
-        <img src="./images/Close-Icon.svg" alt="Close Button" class="dialog__close-button-icon">
-      </button>
+      <button class="dialog__close-button" type="button" name="close button"></button>
       
       <form action="#" class="dialog__form dialog__form_type_update-profile" method="post" name="profile-edit">
         <h3 class="dialog__header">
@@ -63,11 +57,9 @@
     </div>
   </div>
 
-  <div class="dialog dialog__type_add-grid-item">
+  <div class="page__dialog_type_add-grid-item dialog">
     <div class="dialog__container">
-      <button class="dialog__close-button" type="button">
-        <img src="./images/Close-Icon.svg" alt="Close Button" class="dialog__close-button-icon">
-      </button>
+      <button class="dialog__close-button" type="button"></button>
       
       <form action="#" class="dialog__form dialog__form_type_add-image" method="post" name="profile-edit">
         <h3 class="dialog__header">
@@ -84,11 +76,9 @@
     </div>
   </div>
 
-  <div class="dialog dialog__type_image">
+  <div class="page__dialog_type_image dialog">
     <div class="dialog__container">
-      <button class="dialog__close-button" type="button">
-        <img src="./images/Close-Icon.svg" alt="Close Button" class="dialog__close-button-icon">
-      </button>
+      <button class="dialog__close-button" type="button"></button>
       <figure class="dialog__figure">
         <img src="" alt="" class="dialog__image">
         <figcaption class="dialog__image-caption"></figcaption> 
@@ -98,15 +88,12 @@
 
   <template class="grid-template">
     <li class="elements__grid-item">
-      <button class="elements__delete-button" type="button">
-      </button>
+      <button class="elements__delete-button" type="button"></button>
       <img src="" alt="" class="elements__grid-image">
       <div class="elements__grid-description">
         <h2 class="elements__grid-header">
         </h2>
-        <button class="elements__like-button" type="button">
-          <!-- <img src="./images/like-icon.svg" alt="like-icon" class="elements__grid-icon"> -->
-        </button>
+        <button class="elements__like-button" type="button"></button>
       </div>
     </li>
   </template>
