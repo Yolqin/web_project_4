@@ -1,7 +1,31 @@
+import Card from './Card.js';
+
+import { toggleDialog, imagePopup} from "./utils.js";
+
+import FormValidator from './FormValidator.js';
+
+const defaultConfig = {
+  formSelector: ".dialog__form",
+  inputSelector: ".dialog__input",
+  submitButtonSelector: ".dialog__save-button",
+  inactiveButtonClass: "dialog__save-button_disabled",
+  inputErrorClass: "dialog__input_type_error",
+  errorClass: "dialog__error_visible"
+};
+
 //Wrappers
 const addGridItemDialog = document.querySelector('.page__dialog_type_add-grid-item');
 const editProfileDialog = document.querySelector('.page__dialog_type_edit-profile');
-const imagePopup = document.querySelector('.page__dialog_type_image');
+//const imagePopup = document.querySelector('.page__dialog_type_image');
+
+const addCardForm = addGridItemDialog.querySelector('.dialog__form');
+const editProfileForm = editProfileDialog.querySelector('.dialog__form');
+
+const editFormValidator = new FormValidator(defaultConfig, editProfileForm);
+const addFormFormValidator = new FormValidator(defaultConfig, addCardForm);
+
+editFormValidator.enableValidation();
+addFormFormValidator.enableValidation();
 
 //Open Buttons
 const editDialogButton = document.querySelector('.profile__edit-button');
@@ -27,10 +51,6 @@ const aboutMeInput = document.querySelector('.dialog__input_type_about-me');
 
 const gridTemplate = document.querySelector('.grid-template').content.querySelector('.elements__grid-item');
 const list = document.querySelector('.elements__grid');
-
-//Image Dialog
-const dialogImage = imagePopup.querySelector('.dialog__image');
-const dialogImageCaption = imagePopup.querySelector('.dialog__image-caption');
 
 //Image Inputs
 const gridItemTitleInput = document.querySelector('.dialog__input_type_grid-title');
@@ -64,105 +84,37 @@ const initialCards = [
   }
 ];
 
-function addGridItem(imageTitle, imageUrl) {
-  const gridElement = gridTemplate.cloneNode(true);
-
-  const gridImage =  gridElement.querySelector('.elements__grid-image');
-  const gridTitle = gridElement.querySelector('.elements__grid-header');
-  const gridLikeButton = gridElement.querySelector('.elements__like-button');
-  const gridDeleteButton = gridElement.querySelector('.elements__delete-button');
-
-  gridTitle.textContent = imageTitle;
-  gridImage.src = imageUrl;
-  gridImage.alt = imageTitle;
-
-  gridLikeButton.addEventListener("click", () => {
-    gridLikeButton.classList.toggle("elements__like-button_active");
-  });
-
-  gridDeleteButton.addEventListener('click', () => {
-    const gridItem = gridDeleteButton.closest('.elements__grid-item');
-    gridItem.remove();
-    });
-
-  gridImage.addEventListener('click', () => {
-    dialogImage.src = imageUrl;
-    dialogImage.alt = imageTitle;
-    dialogImageCaption.textContent = imageTitle;
-
-    toggleDialog(imagePopup);
-  });
-
-  return gridElement;
-}
-
 dialogImageForm.addEventListener('submit', e => {
   e.preventDefault();
 
-  const gridItem = addGridItem(gridItemTitleInput.value, gridItemImageInput.value,);
+  const gridItem = new Card (
+    {name: gridItemTitleInput.value, 
+    link: gridItemImageInput.value},
+    '.grid-template'
+    );
 
   toggleDialog(addGridItemDialog);
 
   gridItemImageInput.value = "";
   gridItemTitleInput.value = "";
   
-  list.prepend(gridItem);
+  list.prepend(gridItem.addGridItem());
 });
 
 initialCards.forEach(data => {
-  const gridItem = addGridItem(data.name, data.link);
-  list.prepend(gridItem);
+  const gridItem = new Card (
+    {name: data.name, 
+    link: data.link},
+    '.grid-template'
+    );
+  list.prepend(gridItem.addGridItem());
 });
-
-const ESC_KEY = 27;
-
-const closeWithEsc = ({keyCode}) => { 
-  if (keyCode === ESC_KEY) { 
-    const openDialog = document.querySelector('.dialog_open');
-
-    toggleDialog(openDialog); 
-  } 
-} 
-
-//Closing the Popup by Clicking on the Overlay
-
-const closeWithOverlayClick = ({ target }) => {
-  if (target.classList.contains('dialog__close-button') || target.classList.contains('dialog')) {
-    const openDialog = document.querySelector('.dialog_open');
-
-    toggleDialog(openDialog);
-  }
-};
-
-//Dialog Closing
-//let openDialog = null;
-
-const toggleDialog = dialogWindow => {
-  //const openDialog = document.querySelector('.dialog_open');
-  
-  const isDialogOpened = dialogWindow.classList.contains("dialog_open");
-//  openDialog = dialogWindow;
-  dialogWindow.classList.toggle("dialog_open");
- 
-  if (isDialogOpened) {
-    document.removeEventListener('keydown', closeWithEsc);
-    dialogWindow.removeEventListener('click', closeWithOverlayClick);
-
-    //openDialog = null;
-  } else {
-    document.addEventListener('keydown', closeWithEsc);
-    dialogWindow.addEventListener('click', closeWithOverlayClick);
-  }
-}
 
 editDialogButton.addEventListener('click', () => {
 
   nameInput.value = profileName.textContent; 
   aboutMeInput.value = profileJob.textContent;
-  // if (!editProfileDialog.classList.contains('dialog_open')) {   < --- I had this version in my previous sprint, but codereviewer asked to put this check. So, I'm a bit confused which direction to follow.
-  //   nameInput.value = profileName.textContent; 
-  //   aboutMeInput.value = profileJob.textContent;
-  // } 
+
   toggleDialog(editProfileDialog);
 });
 
