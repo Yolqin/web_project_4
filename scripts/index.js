@@ -1,6 +1,6 @@
 import Card from './Card.js';
 
-import { toggleDialog, imagePopup} from "./utils.js";
+import { toggleDialog, imagePopup } from "./utils.js";
 
 import FormValidator from './FormValidator.js';
 
@@ -30,7 +30,7 @@ addFormFormValidator.enableValidation();
 //Open Buttons
 const editDialogButton = document.querySelector('.profile__edit-button');
 const addGridItemDialogButton = document.querySelector('.profile__add-button');
- 
+
 //Close Buttons
 const closeEditDialogButton = editProfileDialog.querySelector('.dialog__close-button');
 const closeGridItemDialogButton = addGridItemDialog.querySelector('.dialog__close-button');
@@ -87,32 +87,36 @@ const initialCards = [
 dialogImageForm.addEventListener('submit', e => {
   e.preventDefault();
 
-  const gridItem = new Card (
-    {name: gridItemTitleInput.value, 
-    link: gridItemImageInput.value},
+  const gridItem = new Card(
+    {
+      name: gridItemTitleInput.value,
+      link: gridItemImageInput.value
+    },
     '.grid-template'
-    );
+  );
 
   toggleDialog(addGridItemDialog);
 
   gridItemImageInput.value = "";
   gridItemTitleInput.value = "";
-  
+
   list.prepend(gridItem.addGridItem());
 });
 
 initialCards.forEach(data => {
-  const gridItem = new Card (
-    {name: data.name, 
-    link: data.link},
+  const gridItem = new Card(
+    {
+      name: data.name,
+      link: data.link
+    },
     '.grid-template'
-    );
+  );
   list.prepend(gridItem.addGridItem());
 });
 
 editDialogButton.addEventListener('click', () => {
 
-  nameInput.value = profileName.textContent; 
+  nameInput.value = profileName.textContent;
   aboutMeInput.value = profileJob.textContent;
 
   toggleDialog(editProfileDialog);
@@ -124,10 +128,10 @@ closeEditDialogButton.addEventListener('click', () => {
 
 dialogForm.addEventListener('submit', e => {
   e.preventDefault();
-  
+
   profileName.textContent = nameInput.value;
   profileJob.textContent = aboutMeInput.value;
- 
+
   toggleDialog(editProfileDialog);
 });
 

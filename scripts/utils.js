@@ -7,15 +7,15 @@ const dialogImageCaption = imagePopup.querySelector('.dialog__image-caption');
 
 
 const ESC_KEY = 27;
-const closeWithEsc = ({keyCode}) => { 
-  
+const closeWithEsc = ({ keyCode }) => {
 
-  if (keyCode === ESC_KEY) { 
+
+  if (keyCode === ESC_KEY) {
     const openDialog = document.querySelector('.dialog_open');
 
-    toggleDialog(openDialog); 
-  } 
-} 
+    toggleDialog(openDialog);
+  }
+}
 
 
 //Closing the Popup by Clicking on the Overlay
@@ -31,10 +31,10 @@ const closeWithOverlayClick = ({ target }) => {
 
 //Dialog Closing
 
-const toggleDialog = dialogWindow => {  
+const toggleDialog = dialogWindow => {
   const isDialogOpened = dialogWindow.classList.contains("dialog_open");
   dialogWindow.classList.toggle("dialog_open");
- 
+
   if (isDialogOpened) {
     document.removeEventListener('keydown', closeWithEsc);
     dialogWindow.removeEventListener('click', closeWithOverlayClick);
@@ -45,4 +45,4 @@ const toggleDialog = dialogWindow => {
   }
 }
 
-export {toggleDialog, dialogImage, dialogImageCaption, imagePopup};
+export { toggleDialog, dialogImage, dialogImageCaption, imagePopup };

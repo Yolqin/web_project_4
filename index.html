@@ -41,15 +41,17 @@
   <div class="page__dialog_type_edit-profile dialog">
     <div class="dialog__container">
       <button class="dialog__close-button" type="button" name="close button"></button>
-      
+
       <form action="#" class="dialog__form dialog__form_type_update-profile" method="post" name="profile-edit">
         <h3 class="dialog__header">
           Edit profile
         </h3>
-        <input type="text" name="name" id="profile__name" class="dialog__input dialog__input_type_name" value="Jacques Cousteau" placeholder="Name" required minlength="2" maxlength="40">
+        <input type="text" name="name" id="profile__name" class="dialog__input dialog__input_type_name"
+          value="Jacques Cousteau" placeholder="Name" required minlength="2" maxlength="40">
         <span id="profile__name_error" class="dialog__error"></span>
 
-        <input type="text" name="description" id="profile__text" class="dialog__input dialog__input_type_about-me" value="Explorer" placeholder="Description" required minlength="2" maxlength="200">
+        <input type="text" name="description" id="profile__text" class="dialog__input dialog__input_type_about-me"
+          value="Explorer" placeholder="Description" required minlength="2" maxlength="200">
         <span id="profile__text_error" class="dialog__error"></span>
 
         <button type="submit" class="dialog__save-button">Save</button>
@@ -60,15 +62,17 @@
   <div class="page__dialog_type_add-grid-item dialog">
     <div class="dialog__container">
       <button class="dialog__close-button" type="button"></button>
-      
+
       <form action="#" class="dialog__form dialog__form_type_add-image" method="post" name="profile-edit">
         <h3 class="dialog__header">
           New place
         </h3>
-        <input type="text" name="title" id="card__title" class="dialog__input dialog__input_type_grid-title" placeholder="Title" required minlength="2" maxlength="30">
+        <input type="text" name="title" id="card__title" class="dialog__input dialog__input_type_grid-title"
+          placeholder="Title" required minlength="2" maxlength="30">
         <span id="card__title_error" class="dialog__error"></span>
 
-        <input type="url" name="image-link" id="card__url" class="dialog__input dialog__input_type_url"  placeholder="Image link" required>
+        <input type="url" name="image-link" id="card__url" class="dialog__input dialog__input_type_url"
+          placeholder="Image link" required>
         <span id="card__url_error" class="dialog__error"></span>
 
         <button type="submit" class="dialog__save-button">Save</button>
@@ -81,7 +85,7 @@
       <button class="dialog__close-button" type="button"></button>
       <figure class="dialog__figure">
         <img src="" alt="" class="dialog__image">
-        <figcaption class="dialog__image-caption"></figcaption> 
+        <figcaption class="dialog__image-caption"></figcaption>
       </figure>
     </div>
   </div>
@@ -98,9 +102,6 @@
     </li>
   </template>
 
-  <script type="module" src="./scripts/utils.js"></script>
-  <script type="module" src="./scripts/Card.js"></script>
-  <script type="module" src="./scripts/FormValidator.js"></script>
   <script type="module" src="./scripts/index.js"></script>
 </body>
 
