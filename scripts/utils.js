@@ -1,48 +1,37 @@
-const imagePopup = document.querySelector('.page__dialog_type_image');
-
-
-//Image Dialog
-const dialogImage = imagePopup.querySelector('.dialog__image');
-const dialogImageCaption = imagePopup.querySelector('.dialog__image-caption');
-
-
-const ESC_KEY = 27;
-const closeWithEsc = ({ keyCode }) => {
-
-
-  if (keyCode === ESC_KEY) {
-    const openDialog = document.querySelector('.dialog_open');
-
-    toggleDialog(openDialog);
-  }
-}
-
-
-//Closing the Popup by Clicking on the Overlay
-
-const closeWithOverlayClick = ({ target }) => {
-  if (target.classList.contains('dialog__close-button') || target.classList.contains('dialog')) {
-    const openDialog = document.querySelector('.dialog_open');
-
-    toggleDialog(openDialog);
-  }
+const defaultConfig = {
+  formSelector: ".dialog__form",
+  inputSelector: ".dialog__input",
+  submitButtonSelector: ".dialog__save-button",
+  inactiveButtonClass: "dialog__save-button_disabled",
+  inputErrorClass: "dialog__input_type_error",
+  errorClass: "dialog__error_visible"
 };
 
-
-//Dialog Closing
-
-const toggleDialog = dialogWindow => {
-  const isDialogOpened = dialogWindow.classList.contains("dialog_open");
-  dialogWindow.classList.toggle("dialog_open");
-
-  if (isDialogOpened) {
-    document.removeEventListener('keydown', closeWithEsc);
-    dialogWindow.removeEventListener('click', closeWithOverlayClick);
-
-  } else {
-    document.addEventListener('keydown', closeWithEsc);
-    dialogWindow.addEventListener('click', closeWithOverlayClick);
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+  },
+  {
+    name: "Lake Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+  },
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg"
   }
-}
+];
 
-export { toggleDialog, dialogImage, dialogImageCaption, imagePopup };
+export { initialCards, defaultConfig };

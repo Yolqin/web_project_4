@@ -1,11 +1,9 @@
-import { toggleDialog, dialogImage, dialogImageCaption, imagePopup } from "./utils.js";
-
-class Card {
-  constructor(data, gridTemplateSelector) {
-    this._name = data.name;
-    this._link = data.link;
-    this._gridTemplate = document.querySelector(gridTemplateSelector)
-      .content.querySelector('.elements__grid-item');
+export default class Card {
+  constructor({ name, link, handleCardClick }, cardSelector) {
+    this._name = name;
+    this._link = link;
+    this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _handleLikeButton(event) {
@@ -15,15 +13,6 @@ class Card {
 
   _handleDeleteButton(event) {
     event.target.closest('.elements__grid-item').remove();
-
-  }
-
-  _handlePreviewImage() {
-    dialogImage.src = this._link;
-    dialogImage.alt = this._name;
-    dialogImageCaption.textContent = this._name;
-
-    toggleDialog(imagePopup);
   }
 
   _addEventListeners() {
@@ -35,13 +24,13 @@ class Card {
 
     gridLikeButton.addEventListener('click', this._handleLikeButton);
     gridDeleteButton.addEventListener('click', this._handleDeleteButton);
-    gridImage.addEventListener('click', () => this._handlePreviewImage());
+    gridImage.addEventListener('click', () => this._handleCardClick());
   }
 
 
   addGridItem() {
 
-    this._grid = this._gridTemplate.cloneNode(true);
+    this._grid = document.querySelector('.grid-template').content.querySelector('.elements__grid-item').cloneNode(true);
 
     const gridTitle = this._grid.querySelector('.elements__grid-header');
     const gridImage = this._grid.querySelector('.elements__grid-image');
@@ -55,7 +44,4 @@ class Card {
 
     return this._grid;
   }
-
 }
-
-export default Card;

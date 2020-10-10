@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Around the US</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
@@ -50,7 +49,7 @@
           value="Jacques Cousteau" placeholder="Name" required minlength="2" maxlength="40">
         <span id="profile__name_error" class="dialog__error"></span>
 
-        <input type="text" name="description" id="profile__text" class="dialog__input dialog__input_type_about-me"
+        <input type="text" name="job" id="profile__text" class="dialog__input dialog__input_type_about-me"
           value="Explorer" placeholder="Description" required minlength="2" maxlength="200">
         <span id="profile__text_error" class="dialog__error"></span>
 
@@ -67,11 +66,11 @@
         <h3 class="dialog__header">
           New place
         </h3>
-        <input type="text" name="title" id="card__title" class="dialog__input dialog__input_type_grid-title"
+        <input type="text" name="name" id="card__title" class="dialog__input dialog__input_type_grid-title"
           placeholder="Title" required minlength="2" maxlength="30">
         <span id="card__title_error" class="dialog__error"></span>
 
-        <input type="url" name="image-link" id="card__url" class="dialog__input dialog__input_type_url"
+        <input type="url" name="link" id="card__url" class="dialog__input dialog__input_type_url"
           placeholder="Image link" required>
         <span id="card__url_error" class="dialog__error"></span>
 
@@ -84,7 +83,7 @@
     <div class="dialog__container">
       <button class="dialog__close-button" type="button"></button>
       <figure class="dialog__figure">
-        <img src="" alt="" class="dialog__image">
+        <img alt="" class="dialog__image">
         <figcaption class="dialog__image-caption"></figcaption>
       </figure>
     </div>
@@ -93,7 +92,7 @@
   <template class="grid-template">
     <li class="elements__grid-item">
       <button class="elements__delete-button" type="button"></button>
-      <img src="" alt="" class="elements__grid-image">
+      <img alt="" class="elements__grid-image">
       <div class="elements__grid-description">
         <h2 class="elements__grid-header">
         </h2>
@@ -101,8 +100,6 @@
       </div>
     </li>
   </template>
-
-  <script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>
