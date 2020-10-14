@@ -11,8 +11,9 @@ export default class Card {
 
   }
 
-  _handleDeleteButton(event) {
-    event.target.closest('.elements__grid-item').remove();
+  _handleDeleteButton() {
+    //event.target.closest('.elements__grid-item').remove();
+    this._gridItem.remove();
   }
 
   _addEventListeners() {
@@ -31,6 +32,7 @@ export default class Card {
   addGridItem() {
 
     this._grid = document.querySelector('.grid-template').content.querySelector('.elements__grid-item').cloneNode(true);
+    this._gridItem = document.querySelector('.elements__grid-item');
 
     const gridTitle = this._grid.querySelector('.elements__grid-header');
     const gridImage = this._grid.querySelector('.elements__grid-image');

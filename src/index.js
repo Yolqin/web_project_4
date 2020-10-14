@@ -1,8 +1,8 @@
-import Card from './Card.js';
+import Card from '../scripts/Card.js';
 
-import { toggleDialog, imagePopup } from "./utils.js";
+import { toggleDialog, imagePopup } from '../scripts/utils.js';
 
-import FormValidator from './FormValidator.js';
+import FormValidator from '../scripts/FormValidator.js';
 
 const defaultConfig = {
   formSelector: ".dialog__form",
