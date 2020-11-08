@@ -26,16 +26,17 @@ api.getInitialCards()
 
     // Get initital list of cards
     const gridList = new Section(
+      
       {
         items: res,
         renderer: (data) => {
+          console.log(res);
           const gridItem = new Card(
             {
               data,
               handleCardClick: () => { imagePopup.open(data.name, data.link); },
               handleDeleteClick: (cardId) => {
                 deleteDialog.open(cardId);
-
                 deleteDialog.handleSubmitEvent(() => {
                   api.removeCard(cardId)
                     .then(() => {
@@ -44,6 +45,9 @@ api.getInitialCards()
                     })
                     .catch(err => console.log(err));
                 })
+              },
+              handleLikeClick: (cardId) => {
+                api.addLike(cardId)
               }
             },
             '.grid-template'

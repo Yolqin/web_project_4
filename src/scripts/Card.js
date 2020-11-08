@@ -1,11 +1,12 @@
 export default class Card {
-  constructor({ data, handleCardClick, handleDeleteClick }, cardSelector) {
+  constructor({ data, handleCardClick, handleDeleteClick, handleLikeClick }, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._id = data._id;
     this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
   }
 
   id() {
@@ -27,7 +28,7 @@ export default class Card {
     const gridDeleteButton = this._grid.querySelector('.elements__delete-button');
 
 
-    gridLikeButton.addEventListener('click', () => this._handleLikeButton());
+    gridLikeButton.addEventListener('click', () => this._handleLikeClick(this.id()));
     gridDeleteButton.addEventListener('click', () => this._handleDeleteClick(this.id()));
     gridImage.addEventListener('click', () => this._handleCardClick());
   }
