@@ -1,18 +1,22 @@
 export default class Card {
-  constructor({ name, link, handleCardClick }, cardSelector) {
-    this._name = name;
-    this._link = link;
+  constructor({ data, handleCardClick, handleDeleteClick }, cardSelector) {
+    this._name = data.name;
+    this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._id = data._id;
+    this._handleDeleteClick = handleDeleteClick;
+  }
+
+  id() {
+    return this._id;
   }
 
   _handleLikeButton(event) {
     event.target.classList.toggle('elements__like-button_active');
-
   }
 
   _handleDeleteButton() {
-    //event.target.closest('.elements__grid-item').remove();
     this._gridItem.remove();
   }
 
@@ -24,7 +28,7 @@ export default class Card {
 
 
     gridLikeButton.addEventListener('click', this._handleLikeButton);
-    gridDeleteButton.addEventListener('click', this._handleDeleteButton);
+    gridDeleteButton.addEventListener('click', this._handleDeleteClick(this.id()));
     gridImage.addEventListener('click', () => this._handleCardClick());
   }
 
