@@ -1,8 +1,8 @@
 const defaultConfig = {
   formSelector: ".dialog__form",
   inputSelector: ".dialog__input",
-  submitButtonSelector: ".dialog__save-button",
-  inactiveButtonClass: "dialog__save-button_disabled",
+  submitButtonSelector: ".dialog__button",
+  inactiveButtonClass: "dialog__button_disabled",
   inputErrorClass: "dialog__input_type_error",
   errorClass: "dialog__error_visible"
 };

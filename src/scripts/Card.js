@@ -16,7 +16,7 @@ export default class Card {
     event.target.classList.toggle('elements__like-button_active');
   }
 
-  _handleDeleteButton() {
+  handleDeleteButton() {
     this._gridItem.remove();
   }
 
@@ -27,8 +27,8 @@ export default class Card {
     const gridDeleteButton = this._grid.querySelector('.elements__delete-button');
 
 
-    gridLikeButton.addEventListener('click', this._handleLikeButton);
-    gridDeleteButton.addEventListener('click', this._handleDeleteClick(this.id()));
+    gridLikeButton.addEventListener('click', () => this._handleLikeButton());
+    gridDeleteButton.addEventListener('click', () => this._handleDeleteClick(this.id()));
     gridImage.addEventListener('click', () => this._handleCardClick());
   }
 

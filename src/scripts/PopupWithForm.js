@@ -24,4 +24,8 @@ export default class PopupWithForm extends Popup {
       this.close();
     })
   }
+
+  handleSubmitEvent(event) {
+    this._handleFormSubmit = event;
+  }
 }

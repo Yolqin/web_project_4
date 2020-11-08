@@ -34,10 +34,10 @@ export default class FormValidator {
 
     if (hasInvalidInput) {
       button.classList.remove(inactiveButtonClass);
-      this._formElement.querySelector(".dialog__save-button").disabled = false;
+      this._formElement.querySelector(".dialog__button").disabled = false;
     } else {
       button.classList.add(inactiveButtonClass);
-      this._formElement.querySelector(".dialog__save-button").disabled = true;
+      this._formElement.querySelector(".dialog__button").disabled = true;
     }
   }
 

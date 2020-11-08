@@ -8,6 +8,10 @@ import FormValidator from './scripts/FormValidator.js';
 import { initialCards, defaultConfig } from "./scripts/utils.js";
 import Api from './scripts/Api.js';
 
+const deleteDialog = new PopupWithForm({
+  popupSelector: ".page__dialog_type_delete-confirmation"
+});
+deleteDialog.setEventListeners();
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-5",
@@ -19,6 +23,8 @@ const api = new Api({
 
 api.getInitialCards()
   .then(res => {
+
+    // Get initital list of cards
     const gridList = new Section(
       {
         items: res,
@@ -28,7 +34,16 @@ api.getInitialCards()
               data,
               handleCardClick: () => { imagePopup.open(data.name, data.link); },
               handleDeleteClick: (cardId) => {
-                api.removeCard(cardId)
+                deleteDialog.open(cardId);
+
+                deleteDialog.handleSubmitEvent(() => {
+                  api.removeCard(cardId)
+                    .then(() => {
+                      gridItem.handleDeleteButton();
+                      deleteDialog.close;
+                    })
+                    .catch(err => console.log(err));
+                })
               }
             },
             '.grid-template'
@@ -41,6 +56,9 @@ api.getInitialCards()
     );
     gridList.renderItems();
 
+
+
+    // Dialog to add a new card
     const addGridItemDialog = new PopupWithForm({
       popupSelector: ".page__dialog_type_add-grid-item",
       handleFormSubmit: (data) => {
@@ -83,6 +101,7 @@ editProfileDialog.setEventListeners();
 
 
 
+//document.querySelector('.elements__delete-button').addEventListener('click', () => deleteDialog.open());
 
 
 

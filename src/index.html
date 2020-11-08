@@ -53,7 +53,7 @@
           value="Explorer" placeholder="Description" required minlength="2" maxlength="200">
         <span id="profile__text_error" class="dialog__error"></span>
 
-        <button type="submit" class="dialog__save-button">Save</button>
+        <button type="submit" class="dialog__button">Save</button>
       </form>
     </div>
   </div>
@@ -74,7 +74,21 @@
           placeholder="Image link" required>
         <span id="card__url_error" class="dialog__error"></span>
 
-        <button type="submit" class="dialog__save-button">Save</button>
+        <button type="submit" class="dialog__button">Save</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="page__dialog_type_delete-confirmation dialog">
+    <div class="dialog__container">
+      <button class="dialog__close-button" type="button"></button>
+
+      <form action="#" class="dialog__form" method="post" name="delete-confirmation">
+        <h3 class="dialog__header">
+          Are you sure?
+        </h3>
+        <button type="submit" class="dialog__button">Yes</button>
       </form>
     </div>
   </div>

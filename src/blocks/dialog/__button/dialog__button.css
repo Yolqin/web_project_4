@@ -1,4 +1,4 @@
-.dialog__save-button {
+.dialog__button {
   background-color: #000;
   min-width: 100%;
   min-height: 50px;
@@ -16,6 +16,6 @@
   cursor: pointer;
 }
 
-.dialog__save-button:hover {
+.dialog__button:hover {
   opacity: .8;
 }
