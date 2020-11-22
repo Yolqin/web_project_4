@@ -10,28 +10,25 @@ import Api from './scripts/Api.js';
 
 
 // Profile Edit Dialog
-const profileEditDialog = document.querySelector('.page__dialog_type_edit-profile'); // profilePopup
-const profileEditButton = document.querySelector('.profile__edit-button'); // editButton
+const profileEditButton = document.querySelector('.profile__edit-button');
 
-const profileNameInput = document.querySelector('.dialog__input_type_name'); // profileFormNameField
-const profileJobInput = document.querySelector('.dialog__input_type_about-me'); // profileFormTitleField
+const profileNameInput = document.querySelector('.dialog__input_type_name'); 
+const profileJobInput = document.querySelector('.dialog__input_type_about-me');
 
 
 // Avatar Dialog
-const avatarEditDialog = document.querySelector('.page__dialog_type_edit-avatar'); //avatarPopup
-const avatarEditButton = document.querySelector('.profile__avatar_edit'); //editAvatarButton
-const avatarImg = document.querySelector('.profile__avatar'); //avatarInput
+const avatarEditButton = document.querySelector('.profile__avatar_edit');
+const avatarImg = document.querySelector('.profile__avatar');
 
 
 // Card Add Dialog
-const cardAddDialog = document.querySelector('.page__dialog_type_add-grid-item'); //cardPopup
-const cardAddButton = document.querySelector('.profile__add-button'); //addButton
+const cardAddButton = document.querySelector('.profile__add-button');
 
 
 // Form Validators
-const addCardForm = document.querySelector('.dialog__form_type_add-image');  // addCardForm
-const editProfileForm = document.querySelector('.dialog__form_type_update-profile'); // editProfileForm
-const editAvatarForm = document.querySelector('.page__dialog_type_edit-avatar'); //editAvatarForm
+const addCardForm = document.querySelector('.dialog__form_type_add-image');  
+const editProfileForm = document.querySelector('.dialog__form_type_update-profile'); 
+const editAvatarForm = document.querySelector('.page__dialog_type_edit-avatar'); 
 
 const editFormValidator = new FormValidator(defaultConfig, editProfileForm);
 const addFormFormValidator = new FormValidator(defaultConfig, addCardForm);
@@ -39,19 +36,16 @@ const editAvatarValidator = new FormValidator(defaultConfig, editAvatarForm);
 
 
 // Cards
-const imageCards = document.querySelector('.elements__grid'); // imageContainer seems no need
-const gridTemplateSelector = document.querySelector('.grid-template'); //cardTemplateSelector
+const gridTemplateSelector = document.querySelector('.grid-template');
 
 
 // Image Dialog
-const imageDialog = document.querySelector('.page__dialog_type_image'); //imagePopup
-const imagePopup = new PopupWithImage('.page__dialog_type_image');  //popupWithImage
+const imagePopup = new PopupWithImage('.page__dialog_type_image'); 
 imagePopup.setEventListeners(); 
 
 
 // Delete Confirmation
-const cardDeleteDialog = document.querySelector('.page__dialog_type_delete-confirmation'); //deleteCardPopup
-const cardDeleteForm = new PopupWithForm({ popupSelector: '.page__dialog_type_delete-confirmation' });  //deleteForm
+const cardDeleteForm = new PopupWithForm({ popupSelector: '.page__dialog_type_delete-confirmation' });  
 cardDeleteForm.setEventListeners();
 
 
@@ -78,14 +72,14 @@ api.getAppInfo()
   .then(([userData, initialCards]) => {
     const userId = userData._id;
 
-    const starterCards = new Section({   //imageList
+    const starterCards = new Section({  
       items: initialCards,
       renderer: renderingCard
     }, '.elements__grid');
 
     starterCards.renderItems();
 
-    const addGridItemDialog = new PopupWithForm({  //newCardForm
+    const addGridItemDialog = new PopupWithForm({  
       popupSelector: ".page__dialog_type_add-grid-item",
       handleFormSubmit: (data) => {
         loading(true, ".page__dialog_type_add-grid-item");
@@ -144,7 +138,6 @@ api.getAppInfo()
     //Profile
     const profile = new UserInfo({ profileName: ".profile__name", profileJob: ".profile__job", avatarImg: ".profile__avatar" });
     profile.setUserInfo({ name: userData.name, job: userData.about, avatar: userData.avatar });
-    //profile.setAvatarInfo({ avatar: userData.avatar });
 
     // 
     const profileEditForm = new PopupWithForm({

@@ -19,11 +19,6 @@ export default class Card {
     return this._id;
   }
 
-  /*_handleLikes() {
-    if (this._likes.some((like) => like._id === this._userId)) {
-      this._gridItem.querySelector('.elements__like-button').classList.add('elements__like-button_active');
-    }
-  }*/
 
   _handleLikes() {
     const gridLikeButton = this._grid.querySelector('.elements__like-button');
@@ -41,7 +36,7 @@ export default class Card {
   }
 
   //???
-  handleLikeButton(event) {  //handleLikeIcon
+  handleLikeButton(event) {
     event.target.classList.toggle('elements__like-button_active');
   }
 
