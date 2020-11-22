@@ -34,4 +34,6 @@ const initialCards = [
   }
 ];
 
+
+
 export { initialCards, defaultConfig };

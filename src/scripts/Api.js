@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
@@ -18,6 +18,10 @@ class Api {
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
       .catch(err => console.log(err))
+  }
+
+  getAppInfo() {
+    return Promise.all([this.getUserInfo(), this.getInitialCards()])
   }
 
   addCard({ name, link }) {
@@ -60,16 +64,28 @@ class Api {
       .catch(err => console.log(err))
   }
 
-
-  // other methods for working with the API
-}
-
-/*const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/group-5",
-  headers: {
-    authorization: "0b0810cc-19b7-4496-ab2f-26f1fe242520",
-    "Content-Type": "application/json"
+  setUserInfo({ name, job }) {
+    return fetch(this._baseUrl + '/users/me', {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify({
+        name,
+        about: job
+      })
+    })
+      .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
+      .catch(err => console.log(err))
   }
-});*/
 
-export default Api;
+  setUserAvatar(avatar) {
+    return fetch(this._baseUrl + '/users/me/avatar', {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify({
+        avatar
+      })
+    })
+      .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
+      .catch(err => console.log(err))
+  }
+}

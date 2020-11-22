@@ -7,6 +7,7 @@
 @import url('./__job/profile__job.css');
 @import url('./__left-container/profile__left-container.css');
 @import url('./__name/profile__name.css');
+@import url('./__avatar-container/profile__avatar-container.css');
 
 .profile {
   display: flex;

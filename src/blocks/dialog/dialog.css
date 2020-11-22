@@ -8,6 +8,7 @@
 @import url('./__image/dialog__image.css');
 @import url('./__image-caption/dialog__image-caption.css');
 @import url('./__error/dialog__error.css');
+@import url('./__fieldset/dialog__fieldset.css');
 
 
 .dialog {

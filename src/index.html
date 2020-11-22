@@ -16,7 +16,10 @@
     <main class="content">
       <section class="profile">
         <div class="profile__left-container">
-          <img src="./images/profile-photo.jpg" alt="Profile Avatar" class="profile__avatar">
+          <div class="profile__avatar-container">
+            <img src="#" alt="Profile Avatar" class="profile__avatar">
+            <button type="button" name="update avatar" class="profile__avatar_edit"></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__name"></h1>
             <button class="profile__edit-button" type="button" name="edit profile"></button>
@@ -45,18 +48,39 @@
         <h3 class="dialog__header">
           Edit profile
         </h3>
-        <input type="text" name="name" id="profile__name" class="dialog__input dialog__input_type_name"
-          value="Jacques Cousteau" placeholder="Name" required minlength="2" maxlength="40">
-        <span id="profile__name_error" class="dialog__error"></span>
+        <fieldset class="dialog__fieldset">
+          <input type="text" name="name" id="profile__name" class="dialog__input dialog__input_type_name"
+            value="Jacques Cousteau" placeholder="Name" required minlength="2" maxlength="40">
+          <span id="profile__name_error" class="dialog__error"></span>
 
-        <input type="text" name="job" id="profile__text" class="dialog__input dialog__input_type_about-me"
-          value="Explorer" placeholder="Description" required minlength="2" maxlength="200">
-        <span id="profile__text_error" class="dialog__error"></span>
-
+          <input type="text" name="job" id="profile__text" class="dialog__input dialog__input_type_about-me"
+            value="Explorer" placeholder="Description" required minlength="2" maxlength="200">
+          <span id="profile__text_error" class="dialog__error"></span>
+        </fieldset>
         <button type="submit" class="dialog__button">Save</button>
       </form>
     </div>
   </div>
+
+
+  <div class="page__dialog_type_edit-avatar dialog">
+    <div class="dialog__container">
+      <button class="dialog__close-button" type="button" name="close button"></button>
+
+      <form action="#" class="dialog__form" method="post" name="profile-edit">
+        <h3 class="dialog__header">
+          Change profile picture
+        </h3>
+        <fieldset class="dialog__fieldset">
+          <input type="url" name="link" id="card__url" class="dialog__input dialog__input_type_url-avatar"
+            placeholder="Avatar link" required>
+          <span id="card__url-avatar_error" class="dialog__error"></span>
+        </fieldset>
+        <button type="submit" class="dialog__button">Save</button>
+      </form>
+    </div>
+  </div>
+
 
   <div class="page__dialog_type_add-grid-item dialog">
     <div class="dialog__container">
@@ -66,13 +90,15 @@
         <h3 class="dialog__header">
           New place
         </h3>
-        <input type="text" name="name" id="card__title" class="dialog__input dialog__input_type_grid-title"
-          placeholder="Title" required minlength="2" maxlength="30">
-        <span id="card__title_error" class="dialog__error"></span>
+        <fieldset class="dialog__fieldset">
+          <input type="text" name="name" id="card__title" class="dialog__input dialog__input_type_grid-title"
+            placeholder="Title" required minlength="2" maxlength="30">
+          <span id="card__title_error" class="dialog__error"></span>
 
-        <input type="url" name="link" id="card__url" class="dialog__input dialog__input_type_url"
-          placeholder="Image link" required>
-        <span id="card__url_error" class="dialog__error"></span>
+          <input type="url" name="link" id="card__url" class="dialog__input dialog__input_type_url"
+            placeholder="Image link" required>
+          <span id="card__url_error" class="dialog__error"></span>
+        </fieldset>
 
         <button type="submit" class="dialog__button">Save</button>
       </form>
@@ -110,7 +136,10 @@
       <div class="elements__grid-description">
         <h2 class="elements__grid-header">
         </h2>
-        <button class="elements__like-button" type="button"></button>
+        <div class="elements__like-right">
+          <button class="elements__like-button" type="button"></button>
+          <p class="elements__like-count"></p>
+        </div>
       </div>
     </li>
   </template>

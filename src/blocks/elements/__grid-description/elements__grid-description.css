@@ -1,7 +1,6 @@
 .elements__grid-description {
   max-width: 246px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   background-color: #fff;
   width: 100%;
