@@ -1,18 +1,18 @@
-import "./pages/index.css";
-import Section from './scripts/Section.js';
-import Card from './scripts/Card.js';
-import PopupWithForm from './scripts/PopupWithForm.js';
-import PopupWithImage from './scripts/PopupWithImage.js';
-import UserInfo from './scripts/UserInfo.js';
-import FormValidator from './scripts/FormValidator.js';
-import { defaultConfig } from "./scripts/utils.js";
-import Api from './scripts/Api.js';
+import "./index.css";
+import Section from '../scripts/Section.js';
+import Card from '../scripts/Card.js';
+import PopupWithForm from '../scripts/PopupWithForm.js';
+import PopupWithImage from '../scripts/PopupWithImage.js';
+import UserInfo from '../scripts/UserInfo.js';
+import FormValidator from '../scripts/FormValidator.js';
+import { defaultConfig } from "../utils/utils.js";
+import Api from '../scripts/Api.js';
 
 
 // Profile Edit Dialog
 const profileEditButton = document.querySelector('.profile__edit-button');
 
-const profileNameInput = document.querySelector('.dialog__input_type_name'); 
+const profileNameInput = document.querySelector('.dialog__input_type_name');
 const profileJobInput = document.querySelector('.dialog__input_type_about-me');
 
 
@@ -26,9 +26,9 @@ const cardAddButton = document.querySelector('.profile__add-button');
 
 
 // Form Validators
-const addCardForm = document.querySelector('.dialog__form_type_add-image');  
-const editProfileForm = document.querySelector('.dialog__form_type_update-profile'); 
-const editAvatarForm = document.querySelector('.page__dialog_type_edit-avatar'); 
+const addCardForm = document.querySelector('.dialog__form_type_add-image');
+const editProfileForm = document.querySelector('.dialog__form_type_update-profile');
+const editAvatarForm = document.querySelector('.page__dialog_type_edit-avatar');
 
 const editFormValidator = new FormValidator(defaultConfig, editProfileForm);
 const addFormFormValidator = new FormValidator(defaultConfig, addCardForm);
@@ -40,12 +40,12 @@ const gridTemplateSelector = document.querySelector('.grid-template');
 
 
 // Image Dialog
-const imagePopup = new PopupWithImage('.page__dialog_type_image'); 
-imagePopup.setEventListeners(); 
+const imagePopup = new PopupWithImage('.page__dialog_type_image');
+imagePopup.setEventListeners();
 
 
 // Delete Confirmation
-const cardDeleteForm = new PopupWithForm({ popupSelector: '.page__dialog_type_delete-confirmation' });  
+const cardDeleteForm = new PopupWithForm({ popupSelector: '.page__dialog_type_delete-confirmation' });
 cardDeleteForm.setEventListeners();
 
 
@@ -72,14 +72,14 @@ api.getAppInfo()
   .then(([userData, initialCards]) => {
     const userId = userData._id;
 
-    const starterCards = new Section({  
+    const starterCards = new Section({
       items: initialCards,
       renderer: renderingCard
     }, '.elements__grid');
 
     starterCards.renderItems();
 
-    const addGridItemDialog = new PopupWithForm({  
+    const addGridItemDialog = new PopupWithForm({
       popupSelector: ".page__dialog_type_add-grid-item",
       handleFormSubmit: (data) => {
         loading(true, ".page__dialog_type_add-grid-item");
@@ -114,19 +114,20 @@ api.getAppInfo()
           })
         },
         handleLikeClick: (cardId) => {
-          console.log(gridItem);
           const cardLiked = gridItem._grid.querySelector('.elements__like-button').classList.contains('elements__like-button_active');
           if (cardLiked) {
-            gridItem._grid.querySelector('.elements__like-button').classList.remove('elements__like-button_active');
             api.removeLike(cardId)
-              .then(res => gridItem.displayLikesSum(res.likes.length))
+              .then(res => {
+                gridItem._grid.querySelector('.elements__like-button').classList.remove('elements__like-button_active'),
+                  gridItem.displayLikesSum(res.likes.length)
+              })
               .catch(err => console.log(err))
 
           } else {
-            gridItem._grid.querySelector('.elements__like-button').classList.add('elements__like-button_active');
             api.addLike(cardId)
               .then(res => {
-                return gridItem.displayLikesSum(res.likes.length);
+                gridItem._grid.querySelector('.elements__like-button').classList.add('elements__like-button_active'),
+                  gridItem.displayLikesSum(res.likes.length);
               })
               .catch(err => console.log(err))
           }
@@ -174,7 +175,7 @@ api.getAppInfo()
             avatarImg.src = res.avatar;
             avatarForm.close();
             loading(false, ".page__dialog_type_edit-avatar");
-            }
+          }
           )
           .catch(err => console.log(err));
       }

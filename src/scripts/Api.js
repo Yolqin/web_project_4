@@ -9,7 +9,6 @@ export default class Api {
       headers: this._headers
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-      .catch(err => console.log(err))
   }
 
   getUserInfo() {
@@ -17,7 +16,6 @@ export default class Api {
       headers: this._headers
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-      .catch(err => console.log(err))
   }
 
   getAppInfo() {
@@ -34,7 +32,6 @@ export default class Api {
       })
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-      .catch(err => console.log(err))
   }
 
   removeCard(cardId) {
@@ -43,7 +40,6 @@ export default class Api {
       method: "DELETE"
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-      .catch(err => console.log(err))
   }
 
   addLike(cardId) {
@@ -52,7 +48,6 @@ export default class Api {
       method: "PUT"
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-      .catch(err => console.log(err))
   }
 
   removeLike(cardId) {
@@ -61,7 +56,6 @@ export default class Api {
       method: "DELETE"
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-      .catch(err => console.log(err))
   }
 
   setUserInfo({ name, job }) {
@@ -74,7 +68,6 @@ export default class Api {
       })
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-      .catch(err => console.log(err))
   }
 
   setUserAvatar(avatar) {
@@ -86,6 +79,5 @@ export default class Api {
       })
     })
       .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-      .catch(err => console.log(err))
   }
 }
